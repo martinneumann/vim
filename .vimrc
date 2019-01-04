@@ -2,12 +2,21 @@ set nocompatible              " be iMproved, required
 set ruler
 set number
 set expandtab
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set wrap
+set linebreak
 highlight LineNr ctermfg=101
-filetype off                  " required
+vnoremap <C-c> "*y
 
+filetype off                  " required
+set colorcolumn=80
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+if $COLORTERM == 'gnome-terminal'
+  set t_Co=256
+endif
 call vundle#begin()
 " " alternatively, pass a path where Vundle should install plugins
 " call vundle#begin('~/some/path/here')
@@ -24,7 +33,7 @@ Plugin 'tpope/vim-fugitive'
 " " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+" Plugin 'file:///home/gmarik/path/to/plugin'
 " " The sparkup vim script is in a subdirectory of this repo called vim.
 " " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -32,6 +41,9 @@ Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
 " " different version somewhere else.
 Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'toyamarinyon/vim-swift'
+
 "
 " " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -50,7 +62,8 @@ filetype plugin indent on    " required
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
 "
-colorscheme mutenight_scene
+colorscheme tokyo-metro
 " colorscheme underflow " bugged!
 set background=dark
+set termguicolors
 syntax on
