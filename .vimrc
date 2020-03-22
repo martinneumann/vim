@@ -2,9 +2,10 @@ set nocompatible              " be iMproved, required
 set ruler
 set number
 set expandtab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set tw=80
 set wrap
 set linebreak
 highlight LineNr ctermfg=101
@@ -43,6 +44,11 @@ Plugin 'ascenator/L9', {'name': 'newL9'}
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'toyamarinyon/vim-swift'
+Plugin 'posva/vim-vue'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+
+
 
 "
 " " All of your Plugins must be added before the following line
@@ -62,6 +68,7 @@ filetype plugin indent on    " required
 " " see :h vundle for more details or wiki for FAQ
 " " Put your non-Plugin stuff after this line
 "
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 colorscheme tokyo-metro
 " colorscheme underflow " bugged!
 set background=dark
